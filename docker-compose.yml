@@ -1,0 +1,10 @@
+services:
+  web:
+    image: nginx
+    ports:
+      - "80:80"
+
+  db:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: "123"
