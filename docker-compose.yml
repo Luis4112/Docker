@@ -3,8 +3,20 @@ services:
     image: nginx
     ports:
       - "80:80"
-
+    depends_on:
+      db:
+        condition: service_healthy
   db:
     image: mariadb
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes: 
+  db_data:
