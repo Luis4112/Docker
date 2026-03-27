@@ -1,4 +1,18 @@
-# Docker
-Docker repository for studying and compilation of dockerfiles.
+# Docker Compose Lab
 
-In this repo I will be studying how to work with Docker. Dockerfiles, pulling images, understanding where they actually come from, the order of precedence regarding Dockerfiles and how Docker caches information.
+A multi-container lab environment running nginx and MariaDB, 
+built to demonstrate core Docker and docker-compose concepts.
+
+## Stack
+- **nginx** — web server, exposed on port 80
+- **mariadb** — database, internal network only
+
+## Concepts Demonstrated
+- Named volumes for data persistence across container restarts;
+- Secret management via `.env` file.
+- Health checks with dependency ordering — web waits for db to be ready.
+- Port security — database not exposed to host.
+
+## Objective
+
+It's a neat tool. Being curious I'm just messing with it, see what it can do and learning the ins and outs of it.
